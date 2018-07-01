@@ -1,20 +1,17 @@
 import React from 'react';
 
-module.exports.onRenderBody = function(
-  { setHeadComponents, pathPrefix },
-  {
-    icons: {
-      android = true,
-      appleIcon = true,
-      appleStartup = true,
-      coast = false,
-      favicons = true,
-      yandex = false,
-      windows = false
-    }
-  }
-) {
+module.exports.onRenderBody = function({ setHeadComponents, pathPrefix }, { icons = {} }) {
   const prefix = pathPrefix || '/';
+  const {
+    android = true,
+    appleIcon = true,
+    appleStartup = true,
+    coast = false,
+    favicons = true,
+    yandex = false,
+    windows = false
+  } = icons;
+
   const components = [];
 
   if (android) {
