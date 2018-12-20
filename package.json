@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-favicons",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generate favicons for your Gatsby website.",
   "main": "index.js",
   "repository": "https://github.com/Mrtenz/gatsby-plugin-favicons.git",
