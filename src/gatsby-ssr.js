@@ -1,7 +1,7 @@
 import React from 'react';
 
 module.exports.onRenderBody = function({ setHeadComponents, pathPrefix }, { icons = {} }) {
-  const prefix = pathPrefix || '/';
+  const prefix = pathPrefix && (pathPrefix.endsWith('/') ? pathPrefix : `${pathPrefix}/`) || '/';
   const {
     android = true,
     appleIcon = true,
