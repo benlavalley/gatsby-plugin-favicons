@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-favicons",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Generate favicons for your Gatsby website",
   "author": "Maarten Zuidhoorn <maarten@zuidhoorn.com>",
   "homepage": "https://github.com/Mrtenz/gatsby-plugin-favicons",
