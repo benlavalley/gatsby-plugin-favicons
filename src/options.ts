@@ -1,4 +1,4 @@
-import { boolean, object, optional, string, StructType } from 'superstruct';
+import { array, boolean, object, optional, string, StructType } from 'superstruct';
 
 export const OptionsStruct = object({
   logo: string(),
@@ -14,7 +14,8 @@ export const OptionsStruct = object({
       yandex: optional(boolean()),
       windows: optional(boolean())
     })
-  )
+  ),
+  plugins: optional(array())
 });
 
 export type Options = StructType<typeof OptionsStruct>;

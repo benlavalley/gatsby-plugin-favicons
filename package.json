@@ -27,7 +27,8 @@
     "typings",
     "index.js",
     "gatsby-node.js",
-    "gatsby-ssr.js"
+    "gatsby-ssr.js",
+    "options.js"
   ],
   "dependencies": {
     "favicons-webpack-plugin": "^4.2.0",
@@ -62,7 +63,7 @@
   },
   "scripts": {
     "build": "yarn build:source && yarn build:types",
-    "build:source": "babel --extensions '.ts,.tsx' src --out-dir lib",
+    "build:source": "babel --extensions '.ts,.tsx' src --out-dir .",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir typings",
     "lint": "yarn run lint:types && yarn run lint:source && yarn run lint:format",
     "lint:types": "tsc --noEmit",

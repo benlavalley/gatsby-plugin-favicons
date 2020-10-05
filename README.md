@@ -19,11 +19,11 @@ All options except `logo` are optional.
 plugins: [
   {
     resolve: 'gatsby-plugin-favicons',
-    icons: {
+    options: {
       logo: './src/logo.svg',
       appName: 'My Website',
       background: '#fff',
-      favicons: {
+      icons: {
         android: true,
         appleIcon: true,
         appleStartup: true,

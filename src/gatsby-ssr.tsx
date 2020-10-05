@@ -1,15 +1,14 @@
 import { RenderBodyArgs } from 'gatsby';
 import React from 'react';
-import { is } from 'superstruct';
+import { assert } from 'superstruct';
 import { Options, OptionsStruct } from './options';
 
 export const onRenderBody = (
-  { setHeadComponents, pathPrefix, reporter }: RenderBodyArgs,
+  { setHeadComponents, pathPrefix }: RenderBodyArgs,
   options: Options
 ): void => {
-  if (!is(options, OptionsStruct)) {
-    return reporter.panic('Invalid or missing options, please refer to the documentation');
-  }
+  // Options are validated in `gatsby-node`, so we can simply assert here
+  assert(options, OptionsStruct);
 
   const prefix = (pathPrefix && (pathPrefix.endsWith('/') ? pathPrefix : `${pathPrefix}/`)) || '/';
   const {
