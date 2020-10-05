@@ -5,42 +5,49 @@
     "gatsby",
     "gatsby-plugin"
   ],
-  "description": "Generate favicons for your Gatsby website.",
+  "engines": {
+    "node": ">=10"
+  },
+  "description": "Generate favicons for your Gatsby website",
   "main": "index.js",
   "repository": "https://github.com/Mrtenz/gatsby-plugin-favicons.git",
   "author": "Maarten Zuidhoorn <maarten@zuidhoorn.com>",
   "license": "MIT",
   "dependencies": {
-    "favicons-webpack-plugin": "^0.0.9"
+    "favicons-webpack-plugin": "^4.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.51",
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/preset-react": "^7.0.0-beta.51",
-    "eslint": "^5.0.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-react": "^7.10.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.13.7"
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.21.3",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "react": "^16.8.0"
   },
   "peerDependencies": {
-    "webpack": "^4.12.1"
+    "react": "^16.8.0",
+    "webpack": "^4.0.0"
   },
   "scripts": {
     "build": "babel src --out-dir .",
     "prepublish": "yarn run build",
-    "precommit": "lint-staged",
-    "postcommit": "git update-index --again",
     "prettier:diff": "prettier --write --config ./.prettierrc --list-different 'src/**/*.js'"
   },
   "lint-staged": {
     "*.js": [
       "prettier --write --config ./.prettierrc --config-precedence file-override",
-      "eslint",
-      "git add"
+      "eslint"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
