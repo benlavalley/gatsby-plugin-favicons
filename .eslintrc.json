@@ -62,6 +62,12 @@
         "react/prop-types": "off",
         "react-hooks/exhaustive-deps": "off"
       }
+    },
+    {
+      "files": ["gatsby-node.js", "gatsby-ssr.js"],
+      "env": {
+        "node": true
+      }
     }
   ]
 }

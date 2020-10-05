@@ -26,7 +26,3 @@ typings/
 .env
 .next
 lib/
-
-# Gatsby
-/gatsby-node.js
-/gatsby-ssr.js
