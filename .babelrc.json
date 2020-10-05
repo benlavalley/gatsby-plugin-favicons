@@ -1,0 +1,16 @@
+{
+  "ignore": ["**/*.d.ts"],
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "10"
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-proposal-nullish-coalescing-operator"]
+}

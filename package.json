@@ -14,35 +14,55 @@
   "author": "Maarten Zuidhoorn <maarten@zuidhoorn.com>",
   "license": "MIT",
   "dependencies": {
-    "favicons-webpack-plugin": "^4.2.0"
+    "favicons-webpack-plugin": "^4.2.0",
+    "superstruct": "^0.10.12"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.21.3",
+    "gatsby": "^2.24.67",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
-    "react": "^16.8.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.13.1",
+    "typescript": "^4.0.3",
+    "webpack": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
     "webpack": "^4.0.0"
   },
   "scripts": {
-    "build": "babel src --out-dir .",
-    "prepublish": "yarn run build",
-    "prettier:diff": "prettier --write --config ./.prettierrc --list-different 'src/**/*.js'"
+    "build": "yarn build:source && yarn build:types",
+    "build:source": "babel --extensions '.ts' src --out-dir lib",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir typings",
+    "lint": "yarn run lint:types && yarn run lint:source && yarn run lint:format",
+    "lint:types": "tsc --noEmit",
+    "lint:source": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx",
+    "lint:format": "prettier --check --ignore-path .gitignore '**/*.{ts,tsx,js,jsx,json}'",
+    "test": "jest",
+    "format": "prettier --write --ignore-path .gitignore '**/*.{ts,tsx,js,jsx,json}'",
+    "prepare": "yarn build"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write --config ./.prettierrc --config-precedence file-override",
-      "eslint"
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
     ]
   },
   "husky": {
